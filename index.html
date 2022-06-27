@@ -6,14 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script>
+        class person {
+            constructor(name, age,  height, weight) {
+                this.name = name;
+                this.age = age;
+                this.height = height;
+                this.weight = weight;
+            }
+            getshowInfo() {
+                return `${this.name} is ${this.age} years old, ${this.height}cm and weighs ${this.weight}kg`;
+            }
+            setshowInfo(name, age, height, weight) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+            this.weight = weight;
+            }
+        }
+        class techer extends person {
+            constructor(name, age,  height, weight, subject) {
+                super(name, age,  height, weight);
+                this.subject = subject;
+            }
+      get(){
+        return this.getshowInfo() + ` and teaches ${this.subject}`;
+      }
+        }
+        class student extends person {
+            constructor(name, age,  height, weight, grade) {
+                super(name, age,  height, weight);
+                this.grade = grade;
+            }
+            get(){
+        return this.getshowInfo() + ` and study ${this.grade}`;
+      }
+           set(name, age, height, weight,grade){
+          this.setshowInfo(name, age, height, weight)
+          this.grade = grade;
+           
+            
+           }
+        }
+        var student1 = new student("John", 20,180,50, "A");
+         console.log (student1.get());
+           var student2 = new student("Jane", 21,170,60, "B");
+           student2.set("Jane", 22,130,70, "C");
+           console.log(student2.get());
+             
+var teacher1 = new techer("alex", 28,180,50, "A");
+         console.log (teacher1.get());
+
+    </script>
 </head>
 <body>
-     <div id="header">
-         <button id="home "><p bgcolor="white">home</p></button>
-         <button id="contry ">contry</button>
-         <button id="about ">about</button>
-         <button id="serves ">serves</button>
-     </div>
+    
+       
+            <form action="" method="post">
+                <input type="text" name="name" id ="name" placeholder="username">
+                <input type="age" name="age" id ="age" placeholder="age">
+                <input type="button" onclick="add()" id ="btn" value="Add User">
+                </form>
+                
+    
+  
 </body>
 </html>
